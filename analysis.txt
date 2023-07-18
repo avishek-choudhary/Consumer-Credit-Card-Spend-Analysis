@@ -1,0 +1,40 @@
+Consumer Spend Analysis
+
+# Q1. What is the average credit card limit?
+
+SELECT AVG(card_limit) AS avg_card_limit
+FROM customer;
+
+# avg_card_limit
+284700.61
+
+# Q2. What is the most common credit card type?
+
+SELECT card_type, COUNT(card_type) AS count
+FROM customer
+GROUP BY card_type
+ORDER BY count DESC
+LIMIT 1;
+
+# card_type, count
+Gold, 38
+
+# Q3. What is the average age of credit card holder?
+
+SELECT ROUND(AVG(age)) AS avg_age
+FROM customer
+
+# avg_age
+46
+# Q4. What is the most common spending category?
+
+SELECT product, COUNT(product) AS times_bought
+FROM spend
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 1;
+
+# product, times_bought
+PETROL, 200
+
+
