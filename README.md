@@ -6,7 +6,7 @@
 
 ## Description
 
-This project uses SQL to analyze Consumer Credit Card usage data. The goal of the project is to answer a set of questions about credit card usage and consumer spending habits. The results of the SQL queries can be found in the <a href="https://github.com/avishek09/Consumer-Spend-Analysis/tree/main/analysis.txt">analysis</a> file.
+This project uses SQL to analyze Consumer Credit Card usage data. The goal of the project is to answer a set of questions about credit card usage and consumer spending habits. The results of the SQL queries can be found in the <a href="https://github.com/avishek09/Consumer-Spend-Analysis/tree/main/analysis.txt">analysis.txt</a> file.
 
 ## Installation
 
