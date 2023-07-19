@@ -8,7 +8,7 @@ FROM customer;
 # avg_card_limit
 284700.61
 
-# Q2. What is the most common credit card type?
+# Q2. Which type of credit card is most commonly used
 
 SELECT card_type, COUNT(card_type) AS count
 FROM customer
@@ -19,7 +19,7 @@ LIMIT 1;
 # card_type, count
 Gold, 38
 
-# Q3. What is the average age of credit card holder?
+# Q3. What is the average age of credit card holders?
 
 SELECT ROUND(AVG(age)) AS avg_age
 FROM customer
