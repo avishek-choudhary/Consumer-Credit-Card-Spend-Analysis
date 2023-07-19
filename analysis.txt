@@ -1,14 +1,15 @@
 Consumer Credit Card Spend Analysis
 
-# Q1. What is the average credit card limit?
 
-SELECT AVG(card_limit) AS avg_card_limit
+# Q1. What is the average credit limit?
+
+SELECT AVG(credit_limit) AS avg_credit_limit
 FROM customer;
 
-# avg_card_limit
+# avg_credit_limit
 284700.61
 
-# Q2. Which type of credit card is most commonly used
+# Q2. Which type of credit card is most commonly used?
 
 SELECT card_type, COUNT(card_type) AS count
 FROM customer
@@ -26,16 +27,30 @@ FROM customer
 
 # avg_age
 46
-
 # Q4. What is the most common spending category?
 
-SELECT product, COUNT(product) AS times_bought
+SELECT product, COUNT(product) AS frequency
 FROM spend
 GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 1;
 
-# product, times_bought
+# product, frequency
 PETROL, 200
+
+# Q5. What is the average monthly spending?
+
+WITH avg_spent AS (
+SELECT EXTRACT(MONTH FROM date) AS month, AVG(amount) AS avg_amount
+FROM spend
+GROUP BY month
+)
+SELECT ROUND(AVG(avg_amount)) AS avg_monthly_spent
+FROM avg_spent;
+
+# avg_monthly_spent
+237642
+
+
 
 
