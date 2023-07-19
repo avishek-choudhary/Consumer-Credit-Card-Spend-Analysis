@@ -1,5 +1,4 @@
-
- Spend Analysis
+Consumer Credit Card Spend Analysis
 
 # Q1. What is the average credit card limit?
 
