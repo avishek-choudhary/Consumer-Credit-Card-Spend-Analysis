@@ -6,12 +6,12 @@ Consumer Credit Card Spend Analysis
 SELECT AVG(credit_limit) AS avg_credit_limit
 FROM customer;
 
-# avg_credit_limit
+# avg_credit _limit
 284700.61
 
-# Q2. Which type of credit card is most commonly used?
+# Q2. Which type of credit card is most commonly held by customers?
 
-SELECT card_type, COUNT(card_type) AS frequency
+SELECT card_type, COUNT(*) AS frequency
 FROM customer
 GROUP BY card_type
 ORDER BY count DESC
@@ -29,7 +29,7 @@ FROM customer
 46
 # Q4. What is the most common spending category?
 
-SELECT product, COUNT(product) AS frequency
+SELECT product, COUNT(*) AS frequency
 FROM spend
 GROUP BY 1
 ORDER BY 2 DESC
@@ -38,18 +38,116 @@ LIMIT 1;
 # product, frequency
 PETROL, 200
 
-# Q5. What is the average monthly spending?
+# Q5. Show the month-wise spend across the years in descending order.
 
-WITH avg_spent AS (
-SELECT EXTRACT(MONTH FROM date) AS month, AVG(amount) AS avg_amount
+SELECT EXTRACT(MONTH FROM date) AS month, ROUND(SUM(amount)) AS amount_spend
 FROM spend
 GROUP BY month
-)
-SELECT ROUND(AVG(avg_amount)) AS avg_monthly_spent
-FROM avg_spent;
+ORDER BY amount_spend DESC;
 
-# avg_monthly_spent
-237642
+# month, amount_spend
+1, 89421176
+3, 56885086
+2, 55462858
+5, 50668175
+4, 35500777
+11, 20924385
+6, 13514434
+7, 11257776
+8, 9914366
+9, 9213535
+10, 6029870
+12, 5851637
+
+# Q6. What is the average spend per category?
+
+SELECT product_type, ROUND(AVG(amount)) AS avg_spent
+FROM spend
+GROUP BY product_type
+ORDER BY avg_spent DESC;
+
+# product_type, avg_spent
+CLOTHES, 259485
+CAMERA, 259260
+MOVIE TICKET, 258485
+TRAIN TICKET, 250508
+SHOPPING, 249649
+PETROL, 249316
+BUS TICKET, 248028
+CAR, 242677
+FOOD, 236083
+BIKE, 235737
+JEWELLERY, 234130
+SANDALS, 228973
+AIR TICKET, 224187
+RENTAL, 223016
+AUTO, 200202
+
+# Q7. What is the average no. of transactions per month?
+
+SELECT EXTRACT(MONTH FROM date) AS month, COUNT(*) AS transaction
+FROM spend
+GROUP BY month
+ORDER BY transaction DESC;
+
+# month, transaction
+1, 349
+2, 238
+3, 231
+5, 210
+4, 150
+11, 84
+6, 56
+7, 42
+8, 42
+9, 42
+10, 28
+12, 28
+
+# Q8. List the top 5 cities with the highest amount of transactions along with their no. of transactions.
+
+WITH top_customers AS (
+SELECT customer, ROUND(SUM(amount)) AS amount, COUNT(*) AS transaction 
+FROM spend
+GROUP BY customer
+ORDER BY amount DESC
+)
+SELECT city, SUM(amount) AS amount, SUM(transaction) AS transactions
+FROM top_customers AS tc
+JOIN customer ON customer.customer = tc.customer
+GROUP BY 1
+ORDER BY 2 DESC, 3 DESC
+LIMIT 5;
+
+# city, amount, transactions
+COCHIN, 73495349, 298
+BANGALORE, 69342631, 299
+CALCUTTA, 64415762, 251
+MUMBAI, 50828266, 215
+CHENNAI, 32674989, 130
+
+# Q9. List the card types and the amount of transactions it held over the years.
+
+WITH cust AS (
+SELECT customer, SUM(amount) AS amount
+FROM spend
+GROUP BY customer
+ORDER BY amount DESC
+)
+SELECT card_type, ROUND(SUM(amount)) AS amount
+FROM (SELECT cust.customer, card_type, amount
+		FROM cust
+		JOIN customer) as cards
+GROUP BY card_type
+ORDER BY amount DESC;
+
+# card_type, amount
+Gold, 13856474819
+Platimum, 11668610374
+Silver, 10939322226
+
+
+
 
 
 
