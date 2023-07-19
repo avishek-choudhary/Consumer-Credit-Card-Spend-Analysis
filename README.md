@@ -16,7 +16,7 @@ To run this project on your machine you need to install any SQL-supported DBMS t
 3. Import csv files provided in the <a href="https://github.com/avishek09/Consumer-Spend-Analysis/tree/main/dataset">dataset</a> folder.
 4. Your database is ready, now practice your querying skills 👍
 
-Note: If you are using MySQL then restore the <a href="https://github.com/avishek09/backup.sql">backup</a> file of the database and save yourself some time.
+Note: If you are using MySQL then restore the <a href="https://github.com/avishek09/Consumer-Spend-Analysis/tree/main/backup">backup</a> files of the database and save yourself some time.
 
 ## Schema Diagram
 
