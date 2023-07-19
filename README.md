@@ -39,7 +39,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-This dataset was downloaded from Kaggle: https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis
+This dataset was downloaded from Kaggle click (<a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis">here</a>) to download.
 
 ## License
 
