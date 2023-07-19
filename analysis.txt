@@ -1,4 +1,5 @@
-Consumer Spend Analysis
+
+ Spend Analysis
 
 # Q1. What is the average credit card limit?
 
@@ -26,6 +27,7 @@ FROM customer
 
 # avg_age
 46
+
 # Q4. What is the most common spending category?
 
 SELECT product, COUNT(product) AS times_bought
