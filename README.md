@@ -54,8 +54,8 @@ You can use this dataset to build your own project and practice your querying sk
 
 The following are a few of the questions that are answered in the project (check out <a href="https://github.com/avishek09/Consumer-Credit-Card-Spend-Analysis/blob/main/analysis.txt">analysis.txt</a> file for the rest):
 
-* What is the average credit card limit?
-* Which type of credit card is most commonly used?
+* What is the average credit limit?
+* Which type of credit card is most commonly held by customer?
 * What is the average age of credit card holders?
 * What is the most common spending category?
 
@@ -63,8 +63,8 @@ The following are a few of the questions that are answered in the project (check
 
 The results of the questions are as follows:
 
-* The average credit card limit is "₹ 284700".
-* The most commonly used credit card type is "Gold".
+* The average credit limit is "₹ 284700".
+* The most commonly held credit card type is "Gold".
 * The average age of credit card holders is "46 years".
 * The most common spending category is "Petrol".
 
