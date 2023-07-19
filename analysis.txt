@@ -11,13 +11,13 @@ FROM customer;
 
 # Q2. Which type of credit card is most commonly used?
 
-SELECT card_type, COUNT(card_type) AS count
+SELECT card_type, COUNT(card_type) AS frequency
 FROM customer
 GROUP BY card_type
 ORDER BY count DESC
 LIMIT 1;
 
-# card_type, count
+# card_type, frequency
 Gold, 38
 
 # Q3. What is the average age of credit card holders?
