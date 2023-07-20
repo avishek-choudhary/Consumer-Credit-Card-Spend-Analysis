@@ -20,7 +20,8 @@ Note: If you are using MySQL then restore the <a href="https://github.com/avishe
 
 ## Schema Diagram
 
-![schema](https://github.com/avishek09/Consumer-Credit-Card-Spend-Analysis/assets/75924699/bcbc73ed-23cd-40b3-8376-6330853afe8d)
+![Screenshot_1](https://github.com/avishek09/Consumer-Credit-Card-Spend-Analysis/assets/75924699/09fb12a4-e231-4879-a7c2-6f8a8c2dbc9a)
+
 
 <!-- ## Usage
 
