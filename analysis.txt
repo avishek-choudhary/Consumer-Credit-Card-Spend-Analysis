@@ -145,18 +145,35 @@ ORDER BY amount DESC
 SELECT card_type, ROUND(SUM(amount)) AS amount
 FROM (SELECT cust.customer_id, card_type, amount
 		FROM cust
-		JOIN customer) as cards
+		JOIN customer ON customer.customer_id = cust.customer_id) as cards
 GROUP BY card_type
 ORDER BY amount DESC;
 
 # card_type, amount
-Gold, 13856474819
-Platimum, 11668610374
-Silver, 10939322226
+Gold, 146200355
+Platinum, 141314753
+Silver, 77128966
 
 
+# Q10. Which is the most commonly used credit card type?
 
+WITH cust AS (
+SELECT customer_id, COUNT(*) AS transactions
+FROM spend
+GROUP BY customer_id
+ORDER BY transactions DESC
+)
+SELECT card_type, SUM(transactions) AS transactions
+FROM (SELECT cust.customer_id, card_type, transactions
+		FROM cust
+		JOIN customer ON customer.customer_id = cust.customer_id) as cards
+GROUP BY card_type
+ORDER BY transactions DESC;
 
+# card_type, transactions
+Gold, 610
+Platinum, 570
+Silver, 320
 
 
 
