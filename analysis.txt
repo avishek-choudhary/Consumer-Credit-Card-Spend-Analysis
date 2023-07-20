@@ -1,6 +1,5 @@
 Consumer Credit Card Spend Analysis
 
-
 # Q1. What is the average credit limit?
 
 SELECT AVG(credit_limit) AS avg_credit_limit
@@ -29,7 +28,7 @@ FROM customer
 46
 # Q4. What is the most common spending category?
 
-SELECT product, COUNT(*) AS frequency
+SELECT product_type, COUNT(*) AS frequency
 FROM spend
 GROUP BY 1
 ORDER BY 2 DESC
@@ -38,7 +37,7 @@ LIMIT 1;
 # product, frequency
 PETROL, 200
 
-# Q5. Show the month-wise spend across the years in descending order.
+# Q5. Show the month-wise spending across the years in descending order.
 
 SELECT EXTRACT(MONTH FROM date) AS month, ROUND(SUM(amount)) AS amount_spend
 FROM spend
@@ -104,17 +103,17 @@ ORDER BY transaction DESC;
 10, 28
 12, 28
 
-# Q8. List the top 5 cities with the highest amount of transactions along with their no. of transactions.
+# Q8. List the top 5 cities with the highest amount spent along with their no. of transactions.
 
 WITH top_customers AS (
-SELECT customer, ROUND(SUM(amount)) AS amount, COUNT(*) AS transaction 
+SELECT customer_id, ROUND(SUM(amount)) AS amount, COUNT(*) AS transaction 
 FROM spend
-GROUP BY customer
+GROUP BY customer_id
 ORDER BY amount DESC
 )
 SELECT city, SUM(amount) AS amount, SUM(transaction) AS transactions
 FROM top_customers AS tc
-JOIN customer ON customer.customer = tc.customer
+JOIN customer ON customer.customer_id = tc.customer_id
 GROUP BY 1
 ORDER BY 2 DESC, 3 DESC
 LIMIT 5;
@@ -126,16 +125,16 @@ CALCUTTA, 64415762, 251
 MUMBAI, 50828266, 215
 CHENNAI, 32674989, 130
 
-# Q9. List the card types and the amount of transactions it held over the years.
+# Q9. List the card types and the amount spent with them over the years.
 
 WITH cust AS (
-SELECT customer, SUM(amount) AS amount
+SELECT customer_id, SUM(amount) AS amount
 FROM spend
-GROUP BY customer
+GROUP BY customer_id
 ORDER BY amount DESC
 )
 SELECT card_type, ROUND(SUM(amount)) AS amount
-FROM (SELECT cust.customer, card_type, amount
+FROM (SELECT cust.customer_id, card_type, amount
 		FROM cust
 		JOIN customer) as cards
 GROUP BY card_type
@@ -145,6 +144,8 @@ ORDER BY amount DESC;
 Gold, 13856474819
 Platimum, 11668610374
 Silver, 10939322226
+
+
 
 
 
