@@ -66,7 +66,7 @@ The following are a few of the questions that are answered in the project (check
 The results of the questions are as follows:
 
 * The average credit limit is "₹ 284700".
-* The most commonly held credit card type is "Gold".
+* The most commonly used credit card type is "Gold".
 * The average age of credit card holders is "46 years".
 * The most common spending category is "Petrol".
 * The city that has the highest amount of transactions is "COCHIN".
