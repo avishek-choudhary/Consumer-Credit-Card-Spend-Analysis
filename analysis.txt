@@ -8,6 +8,7 @@ FROM customer;
 # avg_credit _limit
 284700.61
 
+
 # Q2. Which type of credit card is most commonly held by customers?
 
 SELECT card_type, COUNT(*) AS frequency
@@ -19,6 +20,7 @@ LIMIT 1;
 # card_type, frequency
 Gold, 38
 
+
 # Q3. What is the average age of credit card holders?
 
 SELECT ROUND(AVG(age)) AS avg_age
@@ -26,6 +28,8 @@ FROM customer
 
 # avg_age
 46
+
+
 # Q4. What is the most common spending category?
 
 SELECT product_type, COUNT(*) AS frequency
@@ -37,26 +41,28 @@ LIMIT 1;
 # product, frequency
 PETROL, 200
 
-# Q5. Show the month-wise spending across the years in descending order.
 
-SELECT EXTRACT(MONTH FROM date) AS month, ROUND(SUM(amount)) AS amount_spend
+# Q5. Show the month-wise spend across the years in descending order.
+
+SELECT MONTHNAME(date) AS month, ROUND(SUM(amount)) AS amount_spend
 FROM spend
 GROUP BY month
 ORDER BY amount_spend DESC;
 
 # month, amount_spend
-1, 89421176
-3, 56885086
-2, 55462858
-5, 50668175
-4, 35500777
-11, 20924385
-6, 13514434
-7, 11257776
-8, 9914366
-9, 9213535
-10, 6029870
-12, 5851637
+January, 89421176
+March, 56885086
+February, 55462858
+May, 50668175
+April, 35500777
+November, 20924385
+June, 13514434
+July, 11257776
+August, 9914366
+September, 9213535
+October, 6029870
+December, 5851637
+
 
 # Q6. What is the average spend per category?
 
@@ -82,26 +88,28 @@ AIR TICKET, 224187
 RENTAL, 223016
 AUTO, 200202
 
+
 # Q7. What is the average no. of transactions per month?
 
-SELECT EXTRACT(MONTH FROM date) AS month, COUNT(*) AS transaction
+SELECT MONTHNAME(date) AS month, COUNT(*) AS transaction
 FROM spend
 GROUP BY month
 ORDER BY transaction DESC;
 
 # month, transaction
-1, 349
-2, 238
-3, 231
-5, 210
-4, 150
-11, 84
-6, 56
-7, 42
-8, 42
-9, 42
-10, 28
-12, 28
+January, 349
+February, 238
+March, 231
+May, 210
+April, 150
+November, 84
+June, 56
+July, 42
+August, 42
+September, 42
+October, 28
+December, 28
+
 
 # Q8. List the top 5 cities with the highest amount spent along with their no. of transactions.
 
@@ -125,6 +133,7 @@ CALCUTTA, 64415762, 251
 MUMBAI, 50828266, 215
 CHENNAI, 32674989, 130
 
+
 # Q9. List the card types and the amount spent with them over the years.
 
 WITH cust AS (
@@ -144,8 +153,6 @@ ORDER BY amount DESC;
 Gold, 13856474819
 Platimum, 11668610374
 Silver, 10939322226
-
-
 
 
 
