@@ -1,5 +1,4 @@
 # Project Status: LIVE
-### This project is not yet completed I'm still working on it.
 ---
 
 # Consumer Credit Card Spend Analysis
