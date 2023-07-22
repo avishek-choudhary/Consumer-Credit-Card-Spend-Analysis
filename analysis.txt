@@ -176,4 +176,43 @@ Platinum, 570
 Silver, 320
 
 
+# Q11. What is the average no. of days a customer pays off their credit card bill?
+
+WITH bill AS (
+SELECT spend.customer_id, 
+	MAX(spend.date) AS spend_date, 
+	MAX(repayment.date) AS repayment_date, 
+	ABS(DATEDIFF(MAX(repayment.date), MAX(spend.date))) AS days
+FROM spend
+JOIN customer ON customer.customer_id = spend.customer_id
+JOIN repayment ON repayment.customer_id = customer.customer_id
+GROUP BY 1
+)
+SELECT ROUND(AVG(days)) AS avg_days
+FROM bill
+
+# avg_days
+62
+
+# Q12. What is the rate of late paying customers?
+
+WITH bill AS (
+SELECT spend.customer_id,
+	MAX(spend.date) AS spend_date, 
+	MAX(repayment.date) AS repayment_date, 
+	ABS(DATEDIFF(MAX(repayment.date), 
+	MAX(spend.date))) AS days
+FROM spend
+JOIN customer ON customer.customer_id = spend.customer_id
+JOIN repayment ON repayment.customer_id = customer.customer_id
+GROUP BY 1
+)
+SELECT CONCAT(ROUND(100 * COUNT(*) / (SELECT COUNT(*) FROM CUSTOMER)), '%') AS late_payment
+FROM bill
+WHERE days > 30 	#assuming the no. of days to pay off the bill is 30 days
+
+# late_payment
+46%
+
+
 
