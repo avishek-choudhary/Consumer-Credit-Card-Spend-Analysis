@@ -21,17 +21,6 @@ Note: If you are using MySQL then restore the <a href="https://github.com/avishe
 
 ![Screenshot_1](https://github.com/avishek09/Consumer-Credit-Card-Spend-Analysis/assets/75924699/09fb12a4-e231-4879-a7c2-6f8a8c2dbc9a)
 
-
-<!-- ## Usage
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![schema](MusicDatabaseSchema.png)
-    ``` -->
-
 ## Database and Tools
 
 * MySQL
@@ -39,7 +28,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-This dataset was downloaded from Kaggle click (<a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis">here</a>) to download.
+This dataset was downloaded from Kaggle click <a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis">here</a> to download.
 
 ## License
 
