@@ -1,6 +1,3 @@
-# Project Status: LIVE
----
-
 # Consumer Credit Card Spend Analysis
 
 ## Description
