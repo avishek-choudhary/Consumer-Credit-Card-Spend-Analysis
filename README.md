@@ -38,7 +38,7 @@ You can use this dataset to build your own project and practice your querying sk
 
 ## Questions Answered
 
-The following are a few of the questions that are answered in the project (check out <a href="https://github.com/avishek09/Consumer-Credit-Card-Spend-Analysis/blob/main/analysis.txt">analysis.txt</a> file for the rest):
+The following are a few of the questions that are answered in the project (check out <a href="https://github.com/avishek09/Consumer-Credit-Card-Spend-Analysis/blob/main/analysis.sql">analysis.sql</a> file for the rest):
 
 * What is the average credit limit?
 * Which type of credit card is most commonly used?
